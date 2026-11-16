@@ -1,479 +1,430 @@
-/* =====================================================
-   MAAI_XG STORE
-   MAIN JAVASCRIPT
-===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =================================================
-       MOBILE MENU
-    ================================================= */
-
-    const menuToggle =
-        document.querySelector(".menu-toggle");
-
-    const navMenu =
-        document.querySelector(".nav-menu");
-
-    if (menuToggle && navMenu) {
-
-        menuToggle.addEventListener("click", () => {
-
-            navMenu.classList.toggle("open");
-
-            const icon =
-                menuToggle.querySelector("i");
-
-            if (navMenu.classList.contains("open")) {
-
-                icon.classList.remove("fa-bars");
-
-                icon.classList.add("fa-xmark");
-
-            } else {
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            }
-
-        });
-
-
-        document.querySelectorAll(".nav-link").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navMenu.classList.remove("open");
-
-                const icon =
-                    menuToggle.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
-
-    }
-
-
-    /* =================================================
-       NAVBAR SCROLL EFFECT
-    ================================================= */
-
-    const navbar =
-        document.querySelector(".navbar");
-
-    function updateNavbar() {
-
-        if (!navbar) return;
-
-        if (window.scrollY > 50) {
-
-            navbar.classList.add("scrolled");
-
-        } else {
-
-            navbar.classList.remove("scrolled");
-
-        }
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar
-    );
-
-    updateNavbar();
-
-
-    /* =================================================
-       ACTIVE NAVIGATION
-    ================================================= */
-
-    const sections =
-        document.querySelectorAll("section[id]");
-
-    const navLinks =
-        document.querySelectorAll(".nav-link");
-
-    function updateActiveNav() {
-
-        let currentSection = "";
-
-        sections.forEach(section => {
-
-            const sectionTop =
-                section.offsetTop - 150;
-
-            const sectionHeight =
-                section.offsetHeight;
-
-            if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
-            ) {
-
-                currentSection =
-                    section.getAttribute("id");
-
-            }
-
-        });
-
-
-        navLinks.forEach(link => {
-
-            link.classList.remove("active");
-
-            const href =
-                link.getAttribute("href");
-
-            if (
-                href === `#${currentSection}`
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    }
-
-    window.addEventListener(
-        "scroll",
-        updateActiveNav
-    );
-
-    updateActiveNav();
-
-
-    /* =================================================
-       SMOOTH SCROLL
-    ================================================= */
-
-    document.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach(link => {
-
-        link.addEventListener("click", event => {
-
-            const targetId =
-                link.getAttribute("href");
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            const navbarHeight =
-                navbar
-                    ? navbar.offsetHeight
-                    : 0;
-
-            const position =
-                target.offsetTop - navbarHeight;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-
-        });
-
+  // =========================
+  // SETTINGS
+  // =========================
+  const WHATSAPP_NUMBER = "79996118911";
+
+  const isArabic = document.documentElement.lang === "ar";
+
+  const messages = {
+    empty: isArabic ? "السلة ديالك مازال خاوية." : "Your cart is empty.",
+    added: isArabic ? "تزاد المنتوج للسلة" : "Product added to cart",
+    removed: isArabic ? "تحيد المنتوج من السلة" : "Product removed from cart",
+    confirmClear: isArabic ? "واش متأكد بغيتي تفرغ السلة؟" : "Are you sure you want to clear the cart?",
+    checkoutEmpty: isArabic ? "زيد شي منتوج للسلة قبل ما تكمل الطلب." : "Add a product before checkout.",
+    orderTitle: isArabic ? "سلام، بغيت نطلب هاد المنتجات:" : "Hello, I would like to order these products:",
+    total: isArabic ? "المجموع" : "Total",
+    quantity: isArabic ? "العدد" : "Quantity"
+  };
+
+  // =========================
+  // MOBILE MENU
+  // =========================
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("open");
+
+      const icon = menuToggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+      }
     });
 
+    navMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
 
-    /* =================================================
-       REVEAL ANIMATION
-    ================================================= */
+        const icon = menuToggle.querySelector("i");
+        if (icon) {
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-xmark");
+        }
+      });
+    });
+  }
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+  // =========================
+  // NAVBAR SCROLL EFFECT
+  // =========================
+  const navbar = document.querySelector(".navbar");
 
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
+  function updateNavbar() {
+    if (navbar) {
+      navbar.classList.toggle("scrolled", window.scrollY > 40);
+    }
+  }
 
-                entries.forEach(entry => {
+  window.addEventListener("scroll", updateNavbar);
+  updateNavbar();
 
-                    if (entry.isIntersecting) {
+  // =========================
+  // ACTIVE NAV LINKS
+  // =========================
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+  function updateActiveLink() {
+    let currentSection = "";
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
 
-                    }
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.id;
+      }
+    });
 
-                });
+    navLinks.forEach(link => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${currentSection}`
+      );
+    });
+  }
 
-            },
-            {
-                threshold: 0.12
-            }
-        );
+  window.addEventListener("scroll", updateActiveLink);
 
+  // =========================
+  // SMOOTH SCROLL
+  // =========================
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", event => {
+      const targetId = link.getAttribute("href");
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+  // =========================
+  // REVEAL ANIMATIONS
+  // =========================
+  const revealElements = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
 
     revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach(element => {
+      element.classList.add("visible");
+    });
+  }
 
-        revealObserver.observe(element);
+  // =========================
+  // CURRENT YEAR
+  // =========================
+  const yearElement = document.getElementById("year");
 
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  // =========================
+  // SHOPPING CART
+  // =========================
+  let cart = [];
+
+  const cartPanel = document.querySelector(".cart-panel");
+  const cartOverlay = document.querySelector(".cart-overlay");
+  const cartOpenButtons = document.querySelectorAll(".cart-open");
+  const cartCloseButton = document.querySelector(".cart-close");
+  const cartItemsContainer = document.querySelector(".cart-items");
+  const cartCountElements = document.querySelectorAll(".cart-count");
+  const cartTotalElement = document.querySelector(".cart-total-value");
+  const checkoutButton = document.querySelector(".checkout-btn");
+  const clearCartButton = document.querySelector(".clear-cart-btn");
+
+  function openCart() {
+    if (!cartPanel || !cartOverlay) return;
+
+    cartPanel.classList.add("open");
+    cartOverlay.classList.add("active");
+    document.body.classList.add("cart-open");
+    cartPanel.setAttribute("aria-hidden", "false");
+  }
+
+  function closeCart() {
+    if (!cartPanel || !cartOverlay) return;
+
+    cartPanel.classList.remove("open");
+    cartOverlay.classList.remove("active");
+    document.body.classList.remove("cart-open");
+    cartPanel.setAttribute("aria-hidden", "true");
+  }
+
+  cartOpenButtons.forEach(button => {
+    button.addEventListener("click", openCart);
+  });
+
+  if (cartCloseButton) {
+    cartCloseButton.addEventListener("click", closeCart);
+  }
+
+  if (cartOverlay) {
+    cartOverlay.addEventListener("click", closeCart);
+  }
+
+  // Update cart count and total
+  function updateCart() {
+    if (!cartItemsContainer) return;
+
+    const totalQuantity = cart.reduce((sum, item) => {
+      return sum + item.quantity;
+    }, 0);
+
+    const totalPrice = cart.reduce((sum, item) => {
+      return sum + item.price * item.quantity;
+    }, 0);
+
+    cartCountElements.forEach(element => {
+      element.textContent = totalQuantity;
     });
 
-
-    /* =================================================
-       BUY BUTTONS
-    ================================================= */
-
-    const buyButtons =
-        document.querySelectorAll(".buy-btn");
-
-    const whatsappNumber =
-        "79996118911";
-
-
-    buyButtons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const product =
-                    button.dataset.product ||
-                    "Gaming Gift Card";
-
-
-                const message =
-                    `Hello MAAI_XG STORE,%0A%0A` +
-                    `I want to buy: ${product}.%0A` +
-                    `Please send me the available options and prices.%0A%0A` +
-                    `Thank you.`;
-
-
-                const whatsappUrl =
-                    `https://wa.me/${whatsappNumber}?text=${message}`;
-
-
-                window.open(
-                    whatsappUrl,
-                    "_blank"
-                );
-
-            }
-        );
-
-    });
-
-
-    /* =================================================
-       RIPPLE EFFECT
-    ================================================= */
-
-    document.querySelectorAll(
-        ".btn, .buy-btn, .nav-buy"
-    ).forEach(button => {
-
-        button.style.position = "relative";
-
-        button.style.overflow = "hidden";
-
-
-        button.addEventListener(
-            "click",
-            function(event) {
-
-                const circle =
-                    document.createElement("span");
-
-                circle.classList.add("ripple");
-
-
-                const rect =
-                    this.getBoundingClientRect();
-
-
-                const size =
-                    Math.max(
-                        rect.width,
-                        rect.height
-                    );
-
-
-                circle.style.width =
-                    `${size}px`;
-
-                circle.style.height =
-                    `${size}px`;
-
-
-                circle.style.left =
-                    `${event.clientX - rect.left - size / 2}px`;
-
-                circle.style.top =
-                    `${event.clientY - rect.top - size / 2}px`;
-
-
-                this.appendChild(circle);
-
-
-                setTimeout(() => {
-
-                    circle.remove();
-
-                }, 600);
-
-            }
-        );
-
-    });
-
-
-    /* =================================================
-       PRODUCT CARD TILT
-    ================================================= */
-
-    const productCards =
-        document.querySelectorAll(".product-card");
-
-
-    productCards.forEach(card => {
-
-        card.addEventListener(
-            "mousemove",
-            event => {
-
-                if (window.innerWidth < 850) {
-                    return;
-                }
-
-
-                const rect =
-                    card.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX - rect.left;
-
-
-                const y =
-                    event.clientY - rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    ((y - centerY) / centerY) * -3;
-
-
-                const rotateY =
-                    ((x - centerX) / centerX) * 3;
-
-
-                card.style.transform =
-                    `perspective(800px)
-                     rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateY(-8px)`;
-
-            }
-        );
-
-
-        card.addEventListener(
-            "mouseleave",
-            () => {
-
-                card.style.transform = "";
-
-            }
-        );
-
-    });
-
-
-    /* =================================================
-       CURRENT YEAR
-    ================================================= */
-
-    const yearElement =
-        document.getElementById("year");
-
-
-    if (yearElement) {
-
-        yearElement.textContent =
-            new Date().getFullYear();
-
+    if (cartTotalElement) {
+      cartTotalElement.textContent = totalPrice.toLocaleString("en-US");
     }
 
+    if (checkoutButton) {
+      checkoutButton.disabled = cart.length === 0;
+    }
 
-    /* =================================================
-       CONTACT BUTTON HOVER
-    ================================================= */
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `
+        <p class="empty-cart">${messages.empty}</p>
+      `;
+      return;
+    }
 
-    document.querySelectorAll(
-        ".contact-btn"
-    ).forEach(button => {
+    cartItemsContainer.innerHTML = cart.map(item => `
+      <div class="cart-item" data-id="${item.id}">
+        <div class="cart-item-info">
+          <strong>${escapeHTML(item.name)}</strong>
+          <span>${escapeHTML(item.value)} × ${item.quantity}</span>
+        </div>
 
-        button.addEventListener(
-            "mouseenter",
-            () => {
+        <strong class="cart-item-price">
+          ${(item.price * item.quantity).toLocaleString("en-US")} DH
+        </strong>
 
-                button.style.transform =
-                    "translateX(-5px)";
+        <button
+          class="remove-item"
+          type="button"
+          data-remove="${item.id}"
+          aria-label="${isArabic ? "حذف المنتوج" : "Remove product"}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    `).join("");
+  }
 
-            }
-        );
+  // Protect text inserted into HTML
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, character => {
+      const entities = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      };
 
+      return entities[character];
+    });
+  }
 
-        button.addEventListener(
-            "mouseleave",
-            () => {
+  // Add product to cart
+  document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.id;
+      const name = button.dataset.product;
+      const value = button.dataset.value;
+      const price = Number(button.dataset.price);
 
-                button.style.transform = "";
+      if (!id || !name || !value || !Number.isFinite(price) || price <= 0) {
+        return;
+      }
 
-            }
-        );
+      const existingItem = cart.find(item => item.id === id);
 
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id,
+          name,
+          value,
+          price,
+          quantity: 1
+        });
+      }
+
+      updateCart();
+
+      const originalHTML = button.innerHTML;
+      button.classList.add("added");
+      button.innerHTML = `<i class="fa-solid fa-check"></i> ${messages.added}`;
+
+      window.setTimeout(() => {
+        button.classList.remove("added");
+        button.innerHTML = originalHTML;
+      }, 1000);
+    });
+  });
+
+  // Remove product from cart
+  if (cartItemsContainer) {
+    cartItemsContainer.addEventListener("click", event => {
+      const removeButton = event.target.closest("[data-remove]");
+
+      if (!removeButton) return;
+
+      const productId = removeButton.dataset.remove;
+
+      cart = cart.filter(item => item.id !== productId);
+
+      updateCart();
+    });
+  }
+
+  // Clear all products
+  if (clearCartButton) {
+    clearCartButton.addEventListener("click", () => {
+      if (cart.length === 0) return;
+
+      if (window.confirm(messages.confirmClear)) {
+        cart = [];
+        updateCart();
+      }
+    });
+  }
+
+  // =========================
+  // WHATSAPP CHECKOUT
+  // =========================
+  if (checkoutButton) {
+    checkoutButton.addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert(messages.checkoutEmpty);
+        return;
+      }
+
+      const totalPrice = cart.reduce((sum, item) => {
+        return sum + item.price * item.quantity;
+      }, 0);
+
+      let orderMessage = `${messages.orderTitle}\n\n`;
+
+      cart.forEach((item, index) => {
+        orderMessage +=
+          `${index + 1}. ${item.name} - ${item.value}\n` +
+          `${messages.quantity}: ${item.quantity}\n` +
+          `${item.price * item.quantity} DH\n\n`;
+      });
+
+      orderMessage += `----------------------\n`;
+      orderMessage += `${messages.total}: ${totalPrice} DH`;
+
+      const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderMessage)}`;
+
+      window.open(whatsappURL, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  // Initial cart display
+  updateCart();
+
+  // =========================
+  // RIPPLE EFFECT
+  // =========================
+  document.querySelectorAll(".btn, .add-to-cart-btn, .checkout-btn").forEach(button => {
+    button.addEventListener("click", event => {
+      const rect = button.getBoundingClientRect();
+      const ripple = document.createElement("span");
+
+      const size = Math.max(rect.width, rect.height);
+
+      ripple.className = "ripple";
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+
+      button.style.position = "relative";
+      button.style.overflow = "hidden";
+      button.appendChild(ripple);
+
+      window.setTimeout(() => {
+        ripple.remove();
+      }, 650);
+    });
+  });
+
+  // =========================
+  // PRODUCT CARD TILT
+  // =========================
+  const productCards = document.querySelectorAll(".product-card");
+
+  productCards.forEach(card => {
+    card.addEventListener("mousemove", event => {
+      if (window.innerWidth <= 850) return;
+
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = (centerY - y) / 35;
+      const rotateY = (x - centerX) / 35;
+
+      card.style.transform =
+        `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
     });
 
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
 
-    /* =================================================
-       BRAND CONSOLE MESSAGE
-    ================================================= */
+  // =========================
+  // CONTACT HOVER
+  // =========================
+  document.querySelectorAll(".contact-btn").forEach(button => {
+    button.addEventListener("mouseenter", () => {
+      button.style.borderColor = "rgba(0, 234, 255, 0.45)";
+    });
 
-    console.log(
-        "%c MAAI_XG STORE ",
-        "color:#00eaff;font-size:20px;font-weight:bold;"
-    );
+    button.addEventListener("mouseleave", () => {
+      button.style.borderColor = "";
+    });
+  });
 
-    console.log(
-        "Digital Gaming Cards Store"
-    );
-
+  console.log("MAAI_XG STORE - Cart system loaded successfully.");
 });
