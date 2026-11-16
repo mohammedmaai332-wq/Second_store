@@ -1,289 +1,629 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAAI_XG STORE | Digital Gaming Cards</title>
-    <meta name="description" content="MAAI_XG STORE - Steam, PlayStation, Xbox and Google Play gift cards">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAAI_XG STORE | Digital Gaming Cards</title>
+  <meta name="description" content="Steam, PlayStation, Xbox and Google Play digital gift cards.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
-    <div class="container nav-container">
-        <a href="#home" class="logo">
-            <img src="logo_profil.png" alt="MAAI_XG STORE">
-            <span>MAAI_XG</span>
-        </a>
-        <nav class="nav-menu">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#cards" class="nav-link">Cards</a>
-            <a href="#prices" class="nav-link">Prices</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="index.html" class="language-btn">
-                <i class="fa-solid fa-language"></i> العربية
-            </a>
-            <a href="#cards" class="nav-buy">Buy Now</a>
-        </nav>
-        <button class="menu-toggle" aria-label="Menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-    </div>
+  <div class="container nav-container">
+    <a href="#home" class="logo">
+      <img src="logo_profil.png" alt="MAAI_XG">
+      <span>MAAI_XG</span>
+    </a>
+
+    <nav class="nav-menu">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#cards" class="nav-link">Cards</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+
+      <a href="index.html" class="language-btn">
+        <i class="fa-solid fa-language"></i> العربية
+      </a>
+
+      <button class="cart-open nav-cart" type="button">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Cart <span class="cart-count">0</span>
+      </button>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
 </header>
 
+<!-- HERO -->
 <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-container">
-        <div class="hero-content reveal">
-            <span class="hero-badge">
-                <i class="fa-solid fa-bolt"></i> Trusted Digital Cards
-            </span>
-            <h1>Welcome to <span>MAAI_XG STORE</span></h1>
-            <p>
-                Your place to buy digital gaming cards
-                for Steam, PlayStation, Xbox and Google Play
-                at competitive prices with fast delivery.
-            </p>
-            <div class="hero-buttons">
-                <a href="#cards" class="btn btn-primary">
-                    <i class="fa-solid fa-gamepad"></i> Browse Cards
-                </a>
-                <a href="https://wa.me/79996118911" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i> Contact Us
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat"><strong>4+</strong><span>Card Types</span></div>
-                <div class="stat"><strong>24/7</strong><span>Customer Support</span></div>
-                <div class="stat"><strong>Fast</strong><span>Delivery</span></div>
-            </div>
+  <div class="hero-bg"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content reveal">
+
+      <span class="hero-badge">
+        <i class="fa-solid fa-bolt"></i>
+        Trusted Digital Cards
+      </span>
+
+      <h1>Welcome to <span>MAAI_XG STORE</span></h1>
+
+      <p>
+        Your perfect destination to buy digital gaming cards
+        for Steam, PlayStation, Xbox and Google Play
+        at competitive prices with fast delivery.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#cards" class="btn btn-primary">
+          <i class="fa-solid fa-gamepad"></i>
+          Browse Cards
+        </a>
+
+        <a href="https://wa.me/79996118911" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Contact Us
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>16+</strong>
+          <span>Digital Products</span>
         </div>
-        <div class="hero-visual reveal">
-            <div class="floating-card steam-float">
-                <i class="fa-brands fa-steam"></i><span>STEAM</span>
-            </div>
-            <div class="floating-card ps-float">
-                <i class="fa-brands fa-playstation"></i><span>PLAYSTATION</span>
-            </div>
-            <div class="floating-card xbox-float">
-                <i class="fa-brands fa-xbox"></i><span>XBOX</span>
-            </div>
-            <div class="hero-logo">
-                <img src="./logo_profil.png" alt="MAAI_XG Logo">
-                <div class="logo-ring"></div>
-            </div>
+
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Customer Support</span>
         </div>
+
+        <div class="stat">
+          <strong>Fast</strong>
+          <span>Delivery</span>
+        </div>
+      </div>
     </div>
+
+    <div class="hero-visual reveal">
+
+      <div class="floating-card steam-float">
+        <i class="fa-brands fa-steam"></i>
+        <span>STEAM</span>
+      </div>
+
+      <div class="floating-card ps-float">
+        <i class="fa-brands fa-playstation"></i>
+        <span>PLAYSTATION</span>
+      </div>
+
+      <div class="floating-card xbox-float">
+        <i class="fa-brands fa-xbox"></i>
+        <span>XBOX</span>
+      </div>
+
+      <div class="hero-logo">
+        <img src="logo_profil.png" alt="MAAI_XG Logo">
+        <div class="logo-ring"></div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
+<!-- PRODUCTS -->
 <section id="cards" class="section cards-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <span><i class="fa-solid fa-store"></i> Our Store</span>
-            <h2>Choose Your Card</h2>
-            <p>Select your platform and contact us directly through WhatsApp.</p>
-        </div>
+  <div class="container">
 
-        <div class="cards-grid">
-            <article class="product-card steam-card reveal">
-                <div class="card-top">
-                    <div class="platform-icon"><i class="fa-brands fa-steam"></i></div>
-                    <span class="card-tag">Most Popular</span>
-                </div>
-                <h3>Steam Gift Card</h3>
-                <p>Steam gift cards for games and digital content.</p>
-                <div class="price-list">
-                    <div><span>5 USD</span><strong>65 DH</strong></div>
-                    <div><span>10 USD</span><strong>115 DH</strong></div>
-                    <div><span>20 USD</span><strong>210 DH</strong></div>
-                    <div><span>100 USD</span><strong>1000 DH</strong></div>
-                </div>
-                <button class="buy-btn" data-product="Steam Gift Card">
-                    <i class="fa-solid fa-cart-shopping"></i> Buy Now
-                </button>
-            </article>
+    <div class="section-title reveal">
+      <span>
+        <i class="fa-solid fa-store"></i>
+        Our Store
+      </span>
 
-            <article class="product-card playstation-card reveal">
-                <div class="card-top">
-                    <div class="platform-icon"><i class="fa-brands fa-playstation"></i></div>
-                    <span class="card-tag">PlayStation</span>
-                </div>
-                <h3>PlayStation Gift Card</h3>
-                <p>PlayStation cards for games and add-ons.</p>
-                <div class="price-list">
-                    <div><span>5 USD</span><strong>65 DH</strong></div>
-                    <div><span>10 USD</span><strong>115 DH</strong></div>
-                    <div><span>20 USD</span><strong>215 DH</strong></div>
-                    <div><span>100 USD</span><strong>1020 DH</strong></div>
-                </div>
-                <button class="buy-btn" data-product="PlayStation Gift Card">
-                    <i class="fa-solid fa-cart-shopping"></i> Buy Now
-                </button>
-            </article>
+      <h2>Choose Your Gift Card</h2>
 
-            <article class="product-card xbox-card reveal">
-                <div class="card-top">
-                    <div class="platform-icon"><i class="fa-brands fa-xbox"></i></div>
-                    <span class="card-tag">Xbox</span>
-                </div>
-                <h3>Xbox Gift Card</h3>
-                <p>Xbox gift cards for games and digital content.</p>
-                <div class="price-list">
-                    <div><span>5 USD</span><strong>65 DH</strong></div>
-                    <div><span>10 USD</span><strong>110 DH</strong></div>
-                    <div><span>20 USD</span><strong>215 DH</strong></div>
-                    <div><span>100 USD</span><strong>1020 DH</strong></div>
-                </div>
-                <button class="buy-btn" data-product="Xbox Gift Card">
-                    <i class="fa-solid fa-cart-shopping"></i> Buy Now
-                </button>
-            </article>
-
-            <article class="product-card google-card reveal">
-                <div class="card-top">
-                    <div class="platform-icon"><i class="fa-brands fa-google-play"></i></div>
-                    <span class="card-tag">Google Play</span>
-                </div>
-                <h3>Google Play Gift Card</h3>
-                <p>Google Play cards for apps, games and digital content.</p>
-                <div class="price-list">
-                    <div><span>5 USD</span><strong>65 DH</strong></div>
-                    <div><span>10 USD</span><strong>115 DH</strong></div>
-                    <div><span>20 USD</span><strong>210 DH</strong></div>
-                    <div><span>100 USD</span><strong>1000 DH</strong></div>
-                </div>
-                <button class="buy-btn" data-product="Google Play Gift Card">
-                    <i class="fa-solid fa-cart-shopping"></i> Buy Now
-                </button>
-            </article>
-        </div>
+      <p>
+        Every card has its own price. Add your products to the cart
+        and complete your order in one WhatsApp message.
+      </p>
     </div>
+
+    <div class="cards-grid">
+
+      <!-- STEAM -->
+
+      <article class="product-card steam-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <span class="card-tag">Steam</span>
+        </div>
+
+        <h3>Steam Gift Card</h3>
+        <p>Steam gift card for games and digital content.</p>
+
+        <div class="product-value">5 USD</div>
+        <div class="product-price">65 DH</div>
+
+        <button class="add-to-cart-btn" data-id="steam-5" data-product="Steam Gift Card" data-value="5 USD" data-price="65">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card steam-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <span class="card-tag">Steam</span>
+        </div>
+
+        <h3>Steam Gift Card</h3>
+        <p>Steam gift card for games and digital content.</p>
+
+        <div class="product-value">10 USD</div>
+        <div class="product-price">115 DH</div>
+
+        <button class="add-to-cart-btn" data-id="steam-10" data-product="Steam Gift Card" data-value="10 USD" data-price="115">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card steam-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <span class="card-tag">Steam</span>
+        </div>
+
+        <h3>Steam Gift Card</h3>
+        <p>Steam gift card for games and digital content.</p>
+
+        <div class="product-value">20 USD</div>
+        <div class="product-price">210 DH</div>
+
+        <button class="add-to-cart-btn" data-id="steam-20" data-product="Steam Gift Card" data-value="20 USD" data-price="210">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card steam-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <span class="card-tag">Steam</span>
+        </div>
+
+        <h3>Steam Gift Card</h3>
+        <p>Steam gift card for games and digital content.</p>
+
+        <div class="product-value">100 USD</div>
+        <div class="product-price">1000 DH</div>
+
+        <button class="add-to-cart-btn" data-id="steam-100" data-product="Steam Gift Card" data-value="100 USD" data-price="1000">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <!-- PLAYSTATION -->
+
+      <article class="product-card playstation-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+          <span class="card-tag">PlayStation</span>
+        </div>
+
+        <h3>PlayStation Gift Card</h3>
+        <p>PlayStation gift card for games and add-ons.</p>
+
+        <div class="product-value">5 USD</div>
+        <div class="product-price">65 DH</div>
+
+        <button class="add-to-cart-btn" data-id="ps-5" data-product="PlayStation Gift Card" data-value="5 USD" data-price="65">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card playstation-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+          <span class="card-tag">PlayStation</span>
+        </div>
+
+        <h3>PlayStation Gift Card</h3>
+        <p>PlayStation gift card for games and add-ons.</p>
+
+        <div class="product-value">10 USD</div>
+        <div class="product-price">115 DH</div>
+
+        <button class="add-to-cart-btn" data-id="ps-10" data-product="PlayStation Gift Card" data-value="10 USD" data-price="115">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card playstation-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+          <span class="card-tag">PlayStation</span>
+        </div>
+
+        <h3>PlayStation Gift Card</h3>
+        <p>PlayStation gift card for games and add-ons.</p>
+
+        <div class="product-value">20 USD</div>
+        <div class="product-price">210 DH</div>
+
+        <button class="add-to-cart-btn" data-id="ps-20" data-product="PlayStation Gift Card" data-value="20 USD" data-price="210">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card playstation-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+          <span class="card-tag">PlayStation</span>
+        </div>
+
+        <h3>PlayStation Gift Card</h3>
+        <p>PlayStation gift card for games and add-ons.</p>
+
+        <div class="product-value">100 USD</div>
+        <div class="product-price">1030 DH</div>
+
+        <button class="add-to-cart-btn" data-id="ps-100" data-product="PlayStation Gift Card" data-value="100 USD" data-price="1030">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <!-- XBOX -->
+
+      <article class="product-card xbox-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-xbox"></i>
+          </div>
+          <span class="card-tag">Xbox</span>
+        </div>
+
+        <h3>Xbox Gift Card</h3>
+        <p>Xbox gift card for games and digital content.</p>
+
+        <div class="product-value">5 USD</div>
+        <div class="product-price">65 DH</div>
+
+        <button class="add-to-cart-btn" data-id="xbox-5" data-product="Xbox Gift Card" data-value="5 USD" data-price="65">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card xbox-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-xbox"></i>
+          </div>
+          <span class="card-tag">Xbox</span>
+        </div>
+
+        <h3>Xbox Gift Card</h3>
+        <p>Xbox gift card for games and digital content.</p>
+
+        <div class="product-value">10 USD</div>
+        <div class="product-price">115 DH</div>
+
+        <button class="add-to-cart-btn" data-id="xbox-10" data-product="Xbox Gift Card" data-value="10 USD" data-price="115">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card xbox-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-xbox"></i>
+          </div>
+          <span class="card-tag">Xbox</span>
+        </div>
+
+        <h3>Xbox Gift Card</h3>
+        <p>Xbox gift card for games and digital content.</p>
+
+        <div class="product-value">20 USD</div>
+        <div class="product-price">210 DH</div>
+
+        <button class="add-to-cart-btn" data-id="xbox-20" data-product="Xbox Gift Card" data-value="20 USD" data-price="210">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card xbox-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-xbox"></i>
+          </div>
+          <span class="card-tag">Xbox</span>
+        </div>
+
+        <h3>Xbox Gift Card</h3>
+        <p>Xbox gift card for games and digital content.</p>
+
+        <div class="product-value">100 USD</div>
+        <div class="product-price">1020 DH</div>
+
+        <button class="add-to-cart-btn" data-id="xbox-100" data-product="Xbox Gift Card" data-value="100 USD" data-price="1020">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <!-- GOOGLE PLAY -->
+
+      <article class="product-card google-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+          <span class="card-tag">Google Play</span>
+        </div>
+
+        <h3>Google Play Gift Card</h3>
+        <p>Google Play gift card for apps and games.</p>
+
+        <div class="product-value">5 USD</div>
+        <div class="product-price">65 DH</div>
+
+        <button class="add-to-cart-btn" data-id="google-5" data-product="Google Play Gift Card" data-value="5 USD" data-price="65">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card google-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+          <span class="card-tag">Google Play</span>
+        </div>
+
+        <h3>Google Play Gift Card</h3>
+        <p>Google Play gift card for apps and games.</p>
+
+        <div class="product-value">10 USD</div>
+        <div class="product-price">115 DH</div>
+
+        <button class="add-to-cart-btn" data-id="google-10" data-product="Google Play Gift Card" data-value="10 USD" data-price="115">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card google-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+          <span class="card-tag">Google Play</span>
+        </div>
+
+        <h3>Google Play Gift Card</h3>
+        <p>Google Play gift card for apps and games.</p>
+
+        <div class="product-value">20 USD</div>
+        <div class="product-price">210 DH</div>
+
+        <button class="add-to-cart-btn" data-id="google-20" data-product="Google Play Gift Card" data-value="20 USD" data-price="210">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+      <article class="product-card google-card reveal">
+        <div class="card-top">
+          <div class="platform-icon">
+            <i class="fa-brands fa-google-play"></i>
+          </div>
+          <span class="card-tag">Google Play</span>
+        </div>
+
+        <h3>Google Play Gift Card</h3>
+        <p>Google Play gift card for apps and games.</p>
+
+        <div class="product-value">100 USD</div>
+        <div class="product-price">1000 DH</div>
+
+        <button class="add-to-cart-btn" data-id="google-100" data-product="Google Play Gift Card" data-value="100 USD" data-price="1000">
+          <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section id="prices" class="section prices-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <span><i class="fa-solid fa-tags"></i> Prices</span>
-            <h2>Gift Card Prices</h2>
-            <p>Current prices for available digital cards.</p>
-        </div>
-        <div class="table-wrapper reveal">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Card</th><th>5 USD</th><th>10 USD</th><th>20 USD</th><th>100 USD</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fa-brands fa-steam"></i> Steam</td>
-                        <td>65 DH</td><td>115 DH</td><td>210 DH</td><td>1000 DH</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-brands fa-playstation"></i> PlayStation</td>
-                        <td>65 DH</td><td>115 DH</td><td>215 DH</td><td>1020 DH</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-brands fa-xbox"></i> Xbox</td>
-                        <td>65 DH</td><td>110 DH</td><td>215 DH</td><td>1020 DH</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fa-brands fa-google-play"></i> Google Play</td>
-                        <td>65 DH</td><td>115 DH</td><td>210 DH</td><td>1000 DH</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
+<!-- SERVICES -->
 <section id="services" class="section services-section">
-    <div class="container">
-        <div class="section-title reveal">
-            <span><i class="fa-solid fa-star"></i> Our Services</span>
-            <h2>Why MAAI_XG?</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-box reveal">
-                <i class="fa-solid fa-bolt"></i>
-                <h3>Fast Delivery</h3>
-                <p>We aim to provide your digital code as quickly as possible after order confirmation.</p>
-            </div>
-            <div class="service-box reveal">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h3>Secure Service</h3>
-                <p>Clear and direct communication before completing your order.</p>
-            </div>
-            <div class="service-box reveal">
-                <i class="fa-solid fa-headset"></i>
-                <h3>Customer Support</h3>
-                <p>Contact us through WhatsApp or Telegram whenever you need help.</p>
-            </div>
-            <div class="service-box reveal">
-                <i class="fa-solid fa-tags"></i>
-                <h3>Competitive Prices</h3>
-                <p>Different digital cards and values are available.</p>
-            </div>
-        </div>
+  <div class="container">
+
+    <div class="section-title reveal">
+      <span>
+        <i class="fa-solid fa-star"></i>
+        Our Services
+      </span>
+
+      <h2>Why Choose MAAI_XG?</h2>
     </div>
+
+    <div class="services-grid">
+
+      <div class="service-box reveal">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Fast Delivery</h3>
+        <p>We aim to deliver your digital code as quickly as possible after order confirmation.</p>
+      </div>
+
+      <div class="service-box reveal">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Clear Transactions</h3>
+        <p>Direct and transparent communication before completing your order.</p>
+      </div>
+
+      <div class="service-box reveal">
+        <i class="fa-solid fa-headset"></i>
+        <h3>Customer Support</h3>
+        <p>Contact us through WhatsApp or Telegram whenever you need help.</p>
+      </div>
+
+      <div class="service-box reveal">
+        <i class="fa-solid fa-tags"></i>
+        <h3>Competitive Prices</h3>
+        <p>A variety of digital gift cards with different values and prices.</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section contact-section">
-    <div class="container">
-        <div class="contact-box reveal">
-            <div class="contact-content">
-                <span><i class="fa-solid fa-message"></i> Contact Us</span>
-                <h2>Want to buy a card?</h2>
-                <p>Choose your card and click Buy Now, or contact us directly.</p>
-            </div>
-            <div class="contact-buttons">
-                <a href="https://wa.me/79996118911" target="_blank" rel="noopener noreferrer" class="contact-btn whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div><small>WhatsApp</small><strong>Contact Us</strong></div>
-                </a>
-                <a href="https://t.me/SimoMaai" target="_blank" rel="noopener noreferrer" class="contact-btn telegram">
-                    <i class="fa-brands fa-telegram"></i>
-                    <div><small>Telegram</small><strong>@SimoMaai</strong></div>
-                </a>
-                <a href="mailto:maai0478@gmail.com" class="contact-btn email">
-                    <i class="fa-solid fa-envelope"></i>
-                    <div><small>Email</small><strong>maai0478@gmail.com</strong></div>
-                </a>
-            </div>
-        </div>
+  <div class="container">
+
+    <div class="contact-box reveal">
+
+      <div class="contact-content">
+        <span>
+          <i class="fa-solid fa-message"></i>
+          Contact Us
+        </span>
+
+        <h2>Ready to Buy a Gift Card?</h2>
+
+        <p>
+          Add your favorite cards to the shopping cart
+          and send your complete order through WhatsApp.
+        </p>
+      </div>
+
+      <div class="contact-buttons">
+
+        <a href="https://wa.me/79996118911" target="_blank" rel="noopener" class="contact-btn whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div>
+            <small>WhatsApp</small>
+            <strong>Contact Us</strong>
+          </div>
+        </a>
+
+        <a href="https://t.me/SimoMaai" target="_blank" rel="noopener" class="contact-btn telegram">
+          <i class="fa-brands fa-telegram"></i>
+          <div>
+            <small>Telegram</small>
+            <strong>@SimoMaai</strong>
+          </div>
+        </a>
+
+        <a href="mailto:maai0478@gmail.com" class="contact-btn email">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <small>Email</small>
+            <strong>maai0478@gmail.com</strong>
+          </div>
+        </a>
+
+      </div>
     </div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-    <div class="container footer-container">
-        <div class="footer-brand">
-            <img src="./logo_profil.png" alt="MAAI_XG STORE">
-            <div>
-                <h3>MAAI_XG STORE</h3>
-                <p>Digital gaming cards at competitive prices.</p>
-            </div>
-        </div>
-        <div class="footer-social">
-            <a href="https://wa.me/79996118911" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://t.me/SimoMaai" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-telegram"></i>
-            </a>
-            <a href="mailto:maai0478@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-        </div>
+  <div class="container footer-container">
+
+    <div class="footer-brand">
+      <img src="logo_profil.png" alt="MAAI_XG">
+
+      <div>
+        <h3>MAAI_XG STORE</h3>
+        <p>Digital gaming cards at competitive prices.</p>
+      </div>
     </div>
-    <div class="copyright">
-        © <span id="year"></span> MAAI_XG STORE — All Rights Reserved.
+
+    <div class="footer-social">
+      <a href="https://wa.me/79996118911" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <a href="https://t.me/SimoMaai" target="_blank" rel="noopener">
+        <i class="fa-brands fa-telegram"></i>
+      </a>
+
+      <a href="mailto:maai0478@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
     </div>
+
+  </div>
+
+  <div class="copyright">
+    © <span id="year"></span> MAAI_XG STORE — All Rights Reserved.
+  </div>
 </footer>
+
+<!-- SHOPPING CART -->
+<div class="cart-overlay"></div>
+
+<aside class="cart-panel" aria-label="Shopping cart" aria-hidden="true">
+
+  <div class="cart-header">
+    <h2>
+      <i class="fa-solid fa-cart-shopping"></i>
+      Shopping Cart
+    </h2>
+
+    <button class="cart-close" type="button" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-items">
+    <p class="empty-cart">Your shopping cart is empty.</p>
+  </div>
+
+  <div class="cart-footer">
+
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong>
+        <span class="cart-total-value">0</span> DH
+      </strong>
+    </div>
+
+    <button class="checkout-btn" type="button">
+      <i class="fa-brands fa-whatsapp"></i>
+      Complete Order via WhatsApp
+    </button>
+
+    <button class="clear-cart-btn" type="button">
+      Clear Cart
+    </button>
+
+  </div>
+</aside>
 
 <script src="script.js"></script>
 </body>
